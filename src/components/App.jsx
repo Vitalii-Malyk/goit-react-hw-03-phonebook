@@ -16,7 +16,11 @@ export class App extends Component {
   componentDidMount() {
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
-    this.setState({ contacts: parsedContacts });
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    } else {
+      this.setState({ filters: '' });
+    }
   }
   componentDidUpdate(prevProps, prevState) {
     if (this.state.contacts !== prevState.contacts) {
@@ -63,6 +67,7 @@ export class App extends Component {
   };
 
   filterChange = data => {
+    console.log(data);
     let newArr = data.filter(el =>
       el.name.toLowerCase().includes(this.state.filter)
     );

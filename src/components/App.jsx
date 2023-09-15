@@ -62,9 +62,9 @@ export class App extends Component {
     this.setState({ ...this.state, filter: `${value.toLowerCase()}` });
   };
 
-  filterArr = fArr => {
-    let newArr = fArr.filter(cur =>
-      cur.name.toLowerCase().includes(this.state.filter)
+  filterArr = data => {
+    let newArr = data.filter(el =>
+      el.name.toLowerCase().includes(this.state.filter)
     );
     return newArr;
   };

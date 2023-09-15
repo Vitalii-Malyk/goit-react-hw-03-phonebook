@@ -62,7 +62,7 @@ export class App extends Component {
     this.setState({ ...this.state, filter: `${value.toLowerCase()}` });
   };
 
-  filterArr = data => {
+  filterChange = data => {
     let newArr = data.filter(el =>
       el.name.toLowerCase().includes(this.state.filter)
     );
@@ -91,7 +91,7 @@ export class App extends Component {
         <h2>Contacts</h2>
         <FilterContacts filterContacts={this.filterContacts} />
         <CreateListContact
-          contact={this.filterArr(this.state.contacts)}
+          contact={this.filterChange(this.state.contacts)}
           deleted={this.deleteContactFromList}
         />
       </div>
